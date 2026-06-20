@@ -30,10 +30,16 @@ export default function Home() {
       const scale = targetWidth / currentWidth;
 
       const dataUrl = await toPng(gridRef.current, {
-        cacheBust: true,
         skipFonts: true, // Fix for browser fetch errors during export
         backgroundColor: "#ffffff",
         pixelRatio: Math.max(2, scale), // Ensure at least 1280px width
+        width: currentWidth,
+        height: currentWidth, // It's a 3x3 grid, so height must equal width
+        style: {
+          width: `${currentWidth}px`,
+          height: `${currentWidth}px`,
+          margin: "0"
+        }
       });
 
       const link = document.createElement("a");

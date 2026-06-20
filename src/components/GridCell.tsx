@@ -55,10 +55,9 @@ export function GridCell({ category, image, onImageChange }: GridCellProps) {
             transition={{ duration: 0.4 }}
             className="w-full h-full relative group"
           >
-            <img
-              src={image}
-              alt={category}
-              className="w-full h-full object-cover"
+            <div
+              className="w-full h-full bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${image})` }}
             />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/50 backdrop-blur-sm">
               <span className="bg-black text-white font-bold text-sm px-4 py-2 uppercase tracking-widest shadow-lg">

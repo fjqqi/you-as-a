@@ -25,14 +25,15 @@ export const MoodboardGrid = forwardRef<HTMLDivElement, MoodboardGridProps>(
     return (
       <div className="w-full max-w-3xl mx-auto">
         <div className="w-full border border-black p-2 bg-white">
-          <div ref={ref} className="w-full grid grid-cols-3">
+          <div ref={ref} className="w-full flex flex-wrap">
             {CATEGORIES.map((category) => (
-              <GridCell
-                key={category}
-                category={category}
-                image={images[category] || null}
-                onImageChange={(url) => onImageChange(category, url)}
-              />
+              <div key={category} className="w-1/3">
+                <GridCell
+                  category={category}
+                  image={images[category] || null}
+                  onImageChange={(url) => onImageChange(category, url)}
+                />
+              </div>
             ))}
           </div>
         </div>
