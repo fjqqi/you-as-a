@@ -25,11 +25,15 @@ export default function Home() {
       // Small delay to ensure all animations/rendering have settled
       await new Promise((resolve) => setTimeout(resolve, 100));
 
+      const targetWidth = 1280;
+      const currentWidth = gridRef.current.offsetWidth || 1;
+      const scale = targetWidth / currentWidth;
+
       const dataUrl = await toPng(gridRef.current, {
         cacheBust: true,
         skipFonts: true, // Fix for browser fetch errors during export
         backgroundColor: "#ffffff",
-        pixelRatio: 2, // High quality
+        pixelRatio: Math.max(2, scale), // Ensure at least 1280px width
       });
 
       const link = document.createElement("a");
