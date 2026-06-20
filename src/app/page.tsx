@@ -33,7 +33,7 @@ export default function Home() {
       });
 
       const link = document.createElement("a");
-      link.download = "my-moodboard.png";
+      link.download = "my-aku-gweh.png";
       link.href = dataUrl;
       link.click();
     } catch (err) {
